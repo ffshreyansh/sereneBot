@@ -78,3 +78,9 @@
 .shd{
   box-shadow: rgba(0, 0, 0, 0.118) 0px 0.60219px 2.77006px -1px, rgba(0, 0, 0, 0.11) 0px 2.28853px 10.5273px -2px, rgba(0, 0, 0, 0.08) 0px 10px 46px -3px;
 }
+.kk{
+  background: rgb(240,90,173);
+background: linear-gradient(69deg, rgba(240,90,173,1) 0%, rgba(91,202,255,1) 100%);
+color: white;
+font-weight: 700;
+}

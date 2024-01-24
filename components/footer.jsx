@@ -4,9 +4,11 @@ import React from 'react'
 const Footer = () => {
     return (
         <div className='bg-black text-white  text-center p-10'>
-            <div className='w-full h-fit flex flex-col lg:flex-row items-center justify-center lg:justify-between mx-auto max-w-screen-xl'>
+            <div className='w-full h-fit flex flex-col gap-8 lg:gap-0 lg:flex-row items-center justify-center lg:justify-between mx-auto max-w-screen-xl'>
                 <div className='w-1/2 flex flex-col items-start gap-10'>
-                    <span className='text-2xl font-bold'>louisBot</span>
+                    <span className='text-2xl font-bold'>
+                        <img src="/serene.png" alt="" />
+                    </span>
                     <div className='flex flex-col lg:flex-row gap-4 items-center font-medium text-white mx-auto lg:mx-0'>
                         <Link href={'#'}>Home</Link>
                         <Link href={'#about'}>About</Link>
@@ -26,7 +28,7 @@ const Footer = () => {
                             <img src="/yt.svg" alt="youtube logo" className='w-10 h-10' />
                         </Link>
                     </div>
-                    <p className='text-xs text-muted-foreground'>Copyright Louis Denis</p>
+                    <p className='text-xs text-muted-foreground mx-auto lg:mx-0'>Copyright © 2024 Lainie </p>
                 </div>
             </div>
         </div>

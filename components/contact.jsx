@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Contact = () => {
+ 
   return (
     <div className='w-full h-80 bg-[#fdf1ec] rounded-md flex flex-col items-center justify-center mb-20'>
         <h2 className='text-2xl lg:text-3xl font-bold text-center px-3 lg:px-0'>Let's discuss your personal goals</h2>

@@ -9,11 +9,11 @@ const Home = () => {
             <p class="text-md lg:text-xl text-muted-foreground">Ask questions, share your thoughts and get support for
             mental health issues. We are here to listen.</p>
             <Link href={'/sign-up'} className='w-full lg:w-1/2'>
-                <button className='w-1/2 h-10 bg-[#e87749] text-white font-semibold rounded-md'>Get Started</button>
+                <button className='w-1/2 h-10 bg-[#f05aad] text-white font-semibold rounded-md'>Get Started</button>
             </Link>
         </div>
         <div className='w-full lg:w-1/2 flex flex-col justify-center h-fit lg:h-screen'>
-            <img src="/anxiety.svg" className='mx-auto w-2/3 lg:ml-auto my-auto' alt="" />
+            <img src="/anxiet.svg" className='mx-auto w-3/4 lg:ml-auto my-auto' alt="" />
         </div>
     </div>
   )
