@@ -9,7 +9,7 @@ const Home = () => {
             <p class="text-md lg:text-xl text-muted-foreground">Ask questions, share your thoughts and get support for
             mental health issues. We are here to listen.</p>
             <Link href={'/sign-up'} className='w-full lg:w-1/2'>
-                <button className='w-1/2 h-10 bg-[#f05aad] text-white font-semibold rounded-md'>Get Started</button>
+                <button className='w-1/2 h-10 bg-[#ffe2f3] border border-[#f364b8] font-semibold text-[#f364b8] rounded-lg shadow-md hover:scale-105 transition'>Get Started</button>
             </Link>
         </div>
         <div className='w-full lg:w-1/2 flex flex-col justify-center h-fit lg:h-screen'>

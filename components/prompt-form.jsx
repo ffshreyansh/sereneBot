@@ -50,7 +50,7 @@ export const PromptForm = ({
               onClick={e => {
                 e.preventDefault()
                 router.refresh()
-                router.push('/chatbot')
+                router.push('/chat')
               }}
               className={cn(
                 buttonVariants({ size: 'sm', variant: 'outline' }),

@@ -4,10 +4,12 @@ import OpenAI from 'openai'
 
 // import { auth } from '@/auth'
 import { nanoid } from '@/lib/utils'
-import { auth } from '@clerk/nextjs'
+import { auth, clerkClient } from '@clerk/nextjs'
 import { NextResponse } from 'next/server'
+import { checkApiLimit } from '@/lib/api-limits'
+import { checkSubscription } from '@/lib/subscriptions'
 
-export const runtime = 'edge'
+// export const runtime = 'edge'
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
@@ -37,6 +39,22 @@ export async function POST(req) {
     if (previewToken) {
         openai.apiKey = previewToken
     }
+
+    const freeTrial = await checkApiLimit();
+    const isPro = await checkSubscription();
+    // const promodal = useProModal()
+
+    if(!freeTrial && !isPro){
+        return new NextResponse('Free trial has expired', {status: 403});
+    }
+    // }else{
+    //     console.log("User is in limit")
+    // }
+
+    // if(freeTrial){
+    //     console.log("User is in limit")
+    // }
+
 
     const res = await openai.chat.completions.create({
         model: 'gpt-3.5-turbo',

@@ -19,12 +19,14 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { toast } from 'react-hot-toast';
 import { usePathname, useRouter } from 'next/navigation';
+import { useProModal } from '@/lib/hooks/use-pro-modal';
 
 const IS_PREVIEW = process.env.VERCEL_ENV === 'preview';
 
 export function Chat({ id, initialMessages, className }){
   const router = useRouter();
   const path = usePathname();
+  const promodal = useProModal()
   const [previewToken, setPreviewToken] = useLocalStorage('ai-token', null);
   const [previewTokenDialog, setPreviewTokenDialog] = useState(IS_PREVIEW);
   const [previewTokenInput, setPreviewTokenInput] = useState(
@@ -45,9 +47,13 @@ export function Chat({ id, initialMessages, className }){
       id,
       previewToken
     },
+    
     onResponse(response) {
       if (response.status === 401) {
         toast.error(response.statusText);
+      }
+      if(response?.status === 403){
+        promodal.onOpen();
       }
     },
     onFinish() {

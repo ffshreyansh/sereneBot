@@ -35,7 +35,16 @@ const Navbar = () => {
     };
   }, []);
  
+  const scrollToElement = (elementId) => {
+    const targetElement = document.getElementById(elementId);
   
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }
 
   return (
     <motion.div ref={ref} className={`flex items-center justify-between py-4 bg-white fixed max-w-screen-xl w-full top-0 lg:top-5 z-50 rounded-none lg:rounded-lg pr-3 lg:pr-4 pl-3 lg:pl-8 left-1/2 right-1/2 -translate-x-1/2 ${hasScrolled ? 'shd transition-all' : 'transition-all'}`}
@@ -45,10 +54,10 @@ const Navbar = () => {
         <img src="/serene.png" alt="lainie logo" width={'30%'} />
       </Link>
       <div className='items-center justify-between gap-10 font-semibold hidden lg:flex'>
-        <Link href={'/'} className={isCurrentPage('/') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>Home</Link>
-        <Link href={'/about'} className={isCurrentPage('/about') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>About</Link>
-        <Link href={'/faq'} className={isCurrentPage('/faq') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>FAQs</Link>
-        <Link href={'/contact'} className={isCurrentPage('/contact') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>Contact</Link>
+        <span  onClick={()=> scrollToElement('home')} className={isCurrentPage('/') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>Home</span>
+        <Link href={'/'} onClick={()=> scrollToElement('about')} className={isCurrentPage('/about') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>About</Link>
+        <Link href={'/'} onClick={()=> scrollToElement('faq')} className={isCurrentPage('/faq') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>FAQs</Link>
+        <Link href={'/'} onClick={()=> scrollToElement('contact')} className={isCurrentPage('/contact') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>Contact</Link>
         <Link href={isSignedIn ? "/chat" : "/sign-in"}>
           <Button variant='nav' size='xl'>{isSignedIn ? 'Chat Bot' : 'Log In'}</Button>
         </Link>
@@ -64,7 +73,7 @@ const Navbar = () => {
             <Link href={'/faq'} className={isCurrentPage('/faq') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>FAQs</Link>
             <Link href={'/contact'} className={isCurrentPage('/contact') ? 'text-[#f05aad]' : 'text-black hover:text-[#f05aad] transition-all'}>Contact</Link>
             <Link href={'/sign-in'}>
-              <Button variant='nav' size='xl'>Login</Button>
+              <Button variant='nav' size='xl'>{isSignedIn ? 'Chat Bot' : 'Log In'}</Button>
             </Link>
           </div>
         </SheetContent>

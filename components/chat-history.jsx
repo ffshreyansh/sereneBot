@@ -6,14 +6,16 @@ import { cn } from '@/lib/utils'
 import { SidebarList } from '@/components/sidebar-list'
 import { buttonVariants } from '@/components/ui/button'
 import { IconPlus } from '@/components/ui/icons'
+import { auth } from '@clerk/nextjs'
 
 
-export async function ChatHistory({ userId }) {
+export async function ChatHistory({userId}) {
+  // const {userId} = auth();
   return (
     <div className="flex flex-col h-full">
       <div className="px-2 my-4">
         <Link
-          href="/"
+          href="/chat"
           className={cn(
             buttonVariants({ variant: 'outline' }),
             'h-10 w-full justify-start bg-zinc-50 px-4 shadow-none transition-colors hover:bg-zinc-200/40 dark:bg-zinc-900 dark:hover:bg-zinc-300/10'
