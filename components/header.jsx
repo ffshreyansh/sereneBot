@@ -66,7 +66,7 @@ export async function Header() {
             </SidebarMobile>
             <SidebarToggle />
           </SidebarProvider>
-          <UserButton />
+          <UserButton afterSignOutUrl='/' />
         </React.Suspense>
       </div>
       <div className="flex items-center justify-end space-x-2">
