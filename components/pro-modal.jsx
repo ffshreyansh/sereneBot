@@ -19,7 +19,6 @@ import {
   } from "@/components/ui/card"
   
 import { Badge } from './ui/badge'
-import { Check, Code, ImageIcon, MessageSquare, Music, VideoIcon, Zap } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from './ui/button'
 import axios from 'axios'
@@ -74,7 +73,7 @@ const ProModal = () => {
                <span className=" text-muted-foreground">/month</span>
              </CardContent>
              <CardFooter>
-               <Button className='w-full' variant='nav' onClick={onSubscribeMonthly}>Subscribe</Button>
+               <Button className='w-full' variant='nav' onClick={onSubscribeMonthly} disabled={loading}>Subscribe</Button>
              </CardFooter>
            </Card>
            <Card className='w-full lg:w-1/2'>
@@ -89,7 +88,7 @@ const ProModal = () => {
                <span className=" text-muted-foreground">/year</span>
              </CardContent>
              <CardFooter>
-             <Button className='w-full' variant='nav' onClick={onSubscribeYearly}>Subscribe</Button>
+             <Button className='w-full' variant='nav' onClick={onSubscribeYearly} disabled={loading}>Subscribe</Button>
              </CardFooter>
            </Card>
            
@@ -98,12 +97,6 @@ const ProModal = () => {
           </DialogDescription>
 
     </DialogHeader>
-    {/* <DialogFooter>
-          <Button size="lg" variant="premium" className="w-full" onClick={onSubscribeMonthly}>
-            Upgrade
-            <Zap className="w-4 h-4 ml-2 fill-white" />
-          </Button>
-        </DialogFooter> */}
   </DialogContent>
 </Dialog>
 

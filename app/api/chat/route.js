@@ -47,20 +47,14 @@ export async function POST(req) {
     if(!freeTrial && !isPro){
         return new NextResponse('Free trial has expired', {status: 403});
     }
-    // }else{
-    //     console.log("User is in limit")
-    // }
-
-    // if(freeTrial){
-    //     console.log("User is in limit")
-    // }
 
 
     const res = await openai.chat.completions.create({
         model: 'gpt-3.5-turbo',
         messages: [instructionMessage, ...messages],
         temperature: 0.7,
-        stream: true
+        stream: true,
+        max_tokens: 50
     })
 
     const stream = OpenAIStream(res, {

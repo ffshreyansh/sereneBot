@@ -4,7 +4,6 @@ import { redirect } from 'next/navigation';
 import { kv } from '@vercel/kv';
 import { auth } from '@clerk/nextjs';
 
-
 async function getChats(userId) {
   if (!userId) {
     return [];
@@ -40,7 +39,6 @@ async function getChat(id, userId) {
 
 async function removeChat({ id, path }) {
   const session = auth()?.sessionId;
-
   if (!session) {
     return {
       error: 'Unauthorized',
@@ -132,4 +130,5 @@ export {
   clearChats,
   getSharedChat,
   shareChat,
+  // getUserId
 };
