@@ -1,24 +1,15 @@
 'use client'
-import AboutComponent from "@/components/about";
-import Contact from "@/components/contact";
-import ContentLaine from "@/components/content";
-import FAQ from "@/components/faq";
-import Footer from "@/components/footer";
-import Home from "@/components/home";
-import Navbar from "@/components/navbar";
-import { auth } from "@clerk/nextjs";
-import Image from "next/image";
-import { useEffect } from "react";
+
+import AboutComponent from '@/components/about'
+import Contact from '@/components/contact'
+import ContentLaine from '@/components/content'
+import FAQ from '@/components/faq'
+import Home from '@/components/home'
+import Navbar from '@/components/navbar'
+import { useClerk } from '@clerk/nextjs'
 
 export default function LandingPage() {
-  // const tele =  window.Telegram.WebApp;
-
-  useEffect(()=>{
-    if (typeof window !== "undefined") {
-      const tele = window.Telegram.WebApp;
-      tele.ready();
-    }
-  })
+  const clerk = useClerk()
 
   return (
     <div>
@@ -26,11 +17,10 @@ export default function LandingPage() {
         <Navbar />
         <Home />
         <AboutComponent />
-        <ContentLaine/>
+        <ContentLaine />
         <FAQ />
         <Contact />
       </div>
-      
     </div>
-  );
+  )
 }
